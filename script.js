@@ -12,3 +12,18 @@ if ('IntersectionObserver' in window) {
         if (el) spy.observe(el);
     });
 }
+
+document.querySelectorAll('[data-count]').forEach((el) => {
+    const end = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now() + 1000;
+       el.textContent = '0' + suffix;
+         function tick(now) {
+           const t = Math.min(Math.max((now - start) / duration, 0), 1);
+           const eased = 1 - Math.pow(1 - t, 4);
+             el.textContent = Math.round(end * eased) + suffix;
+             if (t < 1) requestAnimationFrame(tick);
+            }
+    requestAnimationFrame(tick);
+});
