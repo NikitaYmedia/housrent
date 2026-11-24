@@ -27,3 +27,36 @@ document.querySelectorAll('[data-count]').forEach((el) => {
             }
     requestAnimationFrame(tick);
 });
+
+document.querySelectorAll('.field select').forEach((select) => {
+    select.addEventListener('change', () => {
+           select.classList.toggle('is-placeholder', select.value === '' && select.classList.contains('is-placeholder'));
+           if (select.value !== '') select.classList.remove('is-placeholder');
+             else if (select.options[0].value === '') select.classList.add('is-placeholder');
+    });
+});
+
+document.getElementById('searchForm').addEventListener('submit', (e) => {
+       e.preventDefault();
+       const params = new URLSearchParams();
+       const type = document.getElementById('sType').value;
+       const price = document.getElementById('sPrice').value;
+       const loc = document.getElementById('sLoc').value;
+          if (type) params.set('type', type);
+          if (price) params.set('price', price);
+          if (loc) params.set('loc', loc);
+             const qs = params.toString();
+    window.location.href = 'catalog.html' + (qs ? '?' + qs : '');
+});
+
+const list = document.getElementById('agents');
+function shift(dir) {
+    const cards = list.children;
+        if (dir > 0) list.appendChild(cards[0]);
+        else list.insertBefore(cards[cards.length - 1], cards[0]);
+        list.classList.remove('is-shifting');
+        void list.offsetWidth; 
+        list.classList.add('is-shifting');
+}
+document.getElementById('next').addEventListener('click', () => shift(1));
+document.getElementById('prev').addEventListener('click', () => shift(-1));
