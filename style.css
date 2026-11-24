@@ -1,3 +1,7 @@
+/* ==========================================================
+   LUXESTATE — all visuals live in this file
+   ========================================================== */
+
 :root {
     --bg: #f7f8fa;
     --ink: #0b0b0d;
@@ -6,14 +10,18 @@
     --white: #ffffff;
     --accent: #1f8f6a;
     --accent-soft: rgba(31, 143, 106, .14);
+
     --radius-xl: 36px;
     --radius-lg: 24px;
     --radius-md: 16px;
+
     --container: 1240px;
     --pad: clamp(16px, 3vw, 40px);
     --side: 300px;
     --gap: 40px;
     --ease: cubic-bezier(.2, .7, .2, 1);
+
+    /* photo links (swap freely) */
     --img-hero: url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80");
     --img-house-1: url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80");
     --img-house-2: url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80");
@@ -27,6 +35,7 @@
     --img-cta: url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80");
 }
 
+/* ---------- Reset ---------- */
 *,
 *::before,
 *::after {
@@ -78,6 +87,7 @@ button {
     color: var(--white);
 }
 
+/* ---------- Scroll progress ---------- */
 .progress {
     position: fixed;
     top: 0;
@@ -90,6 +100,7 @@ button {
     transform: scaleX(var(--progress, 0));
 }
 
+/* ---------- Icons (pure CSS masks) ---------- */
 .icon {
     display: inline-block;
     width: 16px;
@@ -137,6 +148,7 @@ button {
     --icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg>");
 }
 
+/* ---------- Buttons ---------- */
 .btn {
     position: relative;
     display: inline-flex;
@@ -153,6 +165,7 @@ button {
 }
 
 .btn::before {
+    /* shine sweep */
     content: "";
     position: absolute;
     inset: 0;
@@ -214,6 +227,7 @@ button {
     font-size: 15px;
 }
 
+/* ---------- Reveal animation ---------- */
 .reveal {
     opacity: 0;
     transform: translateY(40px) scale(.98);
@@ -232,6 +246,7 @@ button {
     transition-delay: 0s;
 }
 
+/* ---------- Eyebrow / titles ---------- */
 .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -278,6 +293,7 @@ button {
     margin-bottom: 26px;
 }
 
+/* ---------- Layout helpers ---------- */
 .section {
     width: min(var(--container), calc(100% - 2 * var(--pad)));
     margin: 110px auto 0;
@@ -294,6 +310,9 @@ button {
     align-items: center;
 }
 
+/* ==========================================================
+   NAV
+   ========================================================== */
 .nav {
     position: fixed;
     top: 20px;
@@ -474,6 +493,9 @@ button {
     transform: translateY(-6px) rotate(-45deg);
 }
 
+/* ==========================================================
+   HERO
+   ========================================================== */
 .hero {
     position: relative;
     display: flex;
@@ -688,6 +710,9 @@ button {
     }
 }
 
+/* ==========================================================
+   SEARCH BAR
+   ========================================================== */
 .search {
     position: relative;
     z-index: 5;
@@ -773,6 +798,9 @@ button {
     transform: rotate(180deg);
 }
 
+/* ==========================================================
+   PROPERTIES
+   ========================================================== */
 .split__side {
     position: sticky;
     top: 110px;
@@ -935,6 +963,9 @@ button {
     transform: rotate(-45deg) scale(1.1);
 }
 
+/* ==========================================================
+   WHY US
+   ========================================================== */
 .section-head {
     text-align: center;
     margin-bottom: 48px;
@@ -968,6 +999,7 @@ button {
 }
 
 .feature::after {
+    /* glow on hover */
     content: "";
     position: absolute;
     right: -60px;
@@ -1044,6 +1076,9 @@ button {
     color: var(--muted);
 }
 
+/* ==========================================================
+   AGENTS
+   ========================================================== */
 .agents__controls {
     display: flex;
     gap: 12px;
@@ -1213,6 +1248,9 @@ button {
     }
 }
 
+/* ==========================================================
+   CTA
+   ========================================================== */
 .cta {
     position: relative;
     display: flex;
@@ -1275,6 +1313,9 @@ button {
     margin-bottom: 24px;
 }
 
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 .footer {
     width: min(var(--container), calc(100% - 2 * var(--pad)));
     margin: 90px auto 0;
@@ -1439,6 +1480,9 @@ button {
     color: var(--ink);
 }
 
+/* ==========================================================
+   EXTRA ICONS (catalog)
+   ========================================================== */
 .icon--search {
     --icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M21 21l-4.3-4.3'/></svg>");
 }
@@ -1471,6 +1515,9 @@ button {
     --icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 20.500S3 15 3 8.800A4.800 4.800 0 0 1 12 6.500a4.800 4.800 0 0 1 9 2.300C21 15 12 20.500 12 20.500z'/></svg>");
 }
 
+/* ==========================================================
+   CATALOG PAGE
+   ========================================================== */
 .page-head {
     position: relative;
     margin: 12px 12px 0;
@@ -1588,6 +1635,7 @@ button {
     margin-top: 56px;
 }
 
+/* ---- filters ---- */
 .filters {
     position: sticky;
     top: 96px;
@@ -1726,6 +1774,7 @@ button {
     width: 100%;
 }
 
+/* ---- results bar ---- */
 .results__bar {
     display: flex;
     align-items: center;
@@ -1771,6 +1820,7 @@ button {
     display: none;
 }
 
+/* ---- cards ---- */
 .listing {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1945,6 +1995,7 @@ button {
     color: var(--accent);
 }
 
+/* ---- empty state ---- */
 .empty {
     grid-column: 1 / -1;
     padding: 90px 24px;
@@ -1982,6 +2033,7 @@ button {
     font-size: 15px;
 }
 
+/* ---- photos for catalog cards ---- */
 .img-1 {
     background-image: var(--img-house-1);
 }
@@ -2030,6 +2082,9 @@ button {
     background-image: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80");
 }
 
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
 @media (max-width: 1280px) {
     .listing {
         grid-template-columns: repeat(2, 1fr);
