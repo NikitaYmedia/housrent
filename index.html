@@ -15,8 +15,27 @@
             <ul class="nav__menu">
                 <li><a href="index.html" class="nav__link nav__link--active" data-spy="top" data-i18n="nav.home">Home</a></li>
                 <li><a href="index.html#why" class="nav__link" data-spy="why" data-i18n="nav.about">About us</a></li>
+                <li><a href="catalog.html" class="nav__link" data-i18n="nav.list">Property List</a></li>
+                <li><a href="#contact" class="nav__link" data-spy="contact" data-i18n="nav.contact">Contact us</a></li>
             </ul>
+            <div class="nav__right">
+                <div class="lang" id="lang">
+                    <button class="lang__btn" type="button" aria-haspopup="true">
+                        <span class="icon icon--globe"></span>
+                        <span data-i18n="lang.short">Eng</span>
+                        <span class="icon icon--chevron"></span>
+                    </button>
+                      <ul class="lang__menu">
+                         <li><button type="button" data-lang="en">English</button></li>
+                         <li><button type="button" data-lang="de">Deutsch</button></li>
+                      </ul>
+                </div>
+                <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Sign up</a>
+                <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
+            </div>
         </nav>
+
+        
     </div>
 </body>
 
