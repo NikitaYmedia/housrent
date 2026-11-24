@@ -5,37 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="title.home">LUXESTATE — Build Your Future</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="progress">
-        <nav class="nav" id="nav">
-            <a href="index.html" class="nav__logo">LUXESTATE</a>
-            <ul class="nav__menu">
-                <li><a href="index.html" class="nav__link nav__link--active" data-spy="top" data-i18n="nav.home">Home</a></li>
-                <li><a href="index.html#why" class="nav__link" data-spy="why" data-i18n="nav.about">About us</a></li>
-                <li><a href="catalog.html" class="nav__link" data-i18n="nav.list">Property List</a></li>
-                <li><a href="#contact" class="nav__link" data-spy="contact" data-i18n="nav.contact">Contact us</a></li>
-            </ul>
-            <div class="nav__right">
-                <div class="lang" id="lang">
-                    <button class="lang__btn" type="button" aria-haspopup="true">
-                        <span class="icon icon--globe"></span>
-                        <span data-i18n="lang.short">Eng</span>
-                        <span class="icon icon--chevron"></span>
-                    </button>
-                      <ul class="lang__menu">
-                         <li><button type="button" data-lang="en">English</button></li>
-                         <li><button type="button" data-lang="de">Deutsch</button></li>
-                      </ul>
-                </div>
-                <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Sign up</a>
-                <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
-            </div>
-        </nav>
 
-        <header class="hero" id="top">
+    <div class="progress"></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__logo">LUXESTATE</a>
+        <ul class="nav__menu">
+            <li><a href="index.html" class="nav__link nav__link--active" data-spy="top" data-i18n="nav.home">Home</a>
+            </li>
+            <li><a href="index.html#why" class="nav__link" data-spy="why" data-i18n="nav.about">About us</a></li>
+            <li><a href="catalog.html" class="nav__link" data-i18n="nav.list">Property List</a></li>
+            <li><a href="#contact" class="nav__link" data-spy="contact" data-i18n="nav.contact">Contact us</a></li>
+        </ul>
+        <div class="nav__right">
+            <div class="lang" id="lang">
+                <button class="lang__btn" type="button" aria-haspopup="true">
+                    <span class="icon icon--globe"></span>
+                    <span data-i18n="lang.short">Eng</span>
+                    <span class="icon icon--chevron"></span>
+                </button>
+                <ul class="lang__menu">
+                    <li><button type="button" data-lang="en">English</button></li>
+                    <li><button type="button" data-lang="de">Deutsch</button></li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Sign up</a>
+            <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
         <div class="hero__bg"></div>
         <div class="hero__watermark" data-i18n="hero.mark">Build</div>
 
@@ -68,8 +71,251 @@
             <span class="hero__play-text" data-i18n-html="hero.play">One Property<br>at a Time</span>
         </a>
     </header>
-    
-    </div>
+
+    <section class="search reveal">
+        <h2 class="search__title" data-i18n="search.title">Find the best place</h2>
+        <form class="search__form" id="searchForm">
+            <label class="field">
+                <span class="field__label" data-i18n="search.looking">Looking for</span>
+                <span class="field__box">
+                    <select id="sType">
+                        <option value="house" data-i18n="type.house">House</option>
+                        <option value="apartment" data-i18n="type.apartment">Apartment</option>
+                        <option value="villa" data-i18n="type.villa">Villa</option>
+                    </select>
+                    <span class="icon icon--chevron"></span>
+                </span>
+            </label>
+            <label class="field">
+                <span class="field__label" data-i18n="search.price">Price</span>
+                <span class="field__box">
+                    <select id="sPrice" class="is-placeholder">
+                        <option value="" data-i18n="search.placeholder">Select</option>
+                        <option value="300000" data-i18n="price.300">Up to $300,000</option>
+                        <option value="500000" data-i18n="price.500">Up to $500,000</option>
+                        <option value="800000" data-i18n="price.800">Up to $800,000</option>
+                    </select>
+                    <span class="icon icon--chevron"></span>
+                </span>
+            </label>
+            <label class="field">
+                <span class="field__label" data-i18n="search.location">Location</span>
+                <span class="field__box">
+                    <select id="sLoc" class="is-placeholder">
+                        <option value="" data-i18n="search.placeholder">Select</option>
+                        <option value="downtown" data-i18n="loc.downtown">Downtown</option>
+                        <option value="suburbs" data-i18n="loc.suburbs">Suburbs</option>
+                        <option value="seaside" data-i18n="loc.seaside">Seaside</option>
+                    </select>
+                    <span class="icon icon--chevron"></span>
+                </span>
+            </label>
+            <button class="btn btn--dark btn--lg" type="submit" data-i18n="search.btn">Search Properties</button>
+        </form>
+    </section>
+
+    <section class="section split" id="properties">
+        <div class="split__side reveal">
+            <span class="eyebrow" data-i18n="eyebrow.featured">Featured</span>
+            <h2 class="section-title" data-i18n-html="props.title">Explore Our<br>Premier Houses</h2>
+            <p class="section-text" data-i18n="props.text">Explore a curated selection of properties that match your
+                lifestyle and goals.</p>
+            <a href="catalog.html" class="btn btn--outline">
+                <span data-i18n="props.btn">View all properties</span>
+                <span class="icon icon--arrow"></span>
+            </a>
+        </div>
+
+        <div class="properties__grid">
+            <a href="catalog.html" class="card card--1 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="4" data-baths="3" data-area="240">4 bed
+                        · 3 bath · 240 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+            <a href="catalog.html" class="card card--2 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="5" data-baths="4" data-area="310">5 bed
+                        · 4 bath · 310 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+            <a href="catalog.html" class="card card--3 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="4" data-baths="3" data-area="260">4 bed
+                        · 3 bath · 260 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+            <a href="catalog.html" class="card card--4 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="3" data-baths="2" data-area="190">3 bed
+                        · 2 bath · 190 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+            <a href="catalog.html" class="card card--5 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="4" data-baths="3" data-area="230">4 bed
+                        · 3 bath · 230 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+            <a href="catalog.html" class="card card--6 reveal">
+                <div class="card__info"><strong data-price="340000">$340,000</strong><span data-i18n="card.sub">Luxury
+                        Modern Living</span><em data-i18n="card.meta" data-beds="5" data-baths="5" data-area="350">5 bed
+                        · 5 bath · 350 m²</em></div>
+                <span class="card__arrow"><span class="icon icon--arrow"></span></span>
+            </a>
+        </div>
+    </section>
+
+    <section class="section why" id="why">
+        <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="why.eyebrow">Why Luxestate</span>
+            <h2 class="section-title" data-i18n-html="why.title">A calmer way to<br>find your next home</h2>
+        </div>
+        <div class="why__grid">
+            <article class="feature reveal">
+                <span class="feature__icon feature__icon--shield"></span>
+                <h3 data-i18n="why.f1.title">Verified listings</h3>
+                <p data-i18n="why.f1.text">Every property is checked by our team, so what you see is exactly what you
+                    get.</p>
+            </article>
+            <article class="feature reveal">
+                <span class="feature__icon feature__icon--users"></span>
+                <h3 data-i18n="why.f2.title">Expert guidance</h3>
+                <p data-i18n="why.f2.text">Experienced agents walk with you from the first viewing to the final
+                    signature.</p>
+            </article>
+            <article class="feature reveal">
+                <span class="feature__icon feature__icon--key"></span>
+                <h3 data-i18n="why.f3.title">Smooth handover</h3>
+                <p data-i18n="why.f3.text">Clear paperwork, fair terms and a fast move-in — no surprises along the way.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section split split--center" id="team">
+        <div class="split__side reveal">
+            <span class="eyebrow" data-i18n="agents.eyebrow">Our team</span>
+            <h2 class="section-title" data-i18n="agents.title">Expert agent</h2>
+            <div class="agents__controls">
+                <button class="circle-btn" id="prev" type="button" aria-label="Previous"><span
+                        class="icon icon--arrow icon--flip"></span></button>
+                <button class="circle-btn" id="next" type="button" aria-label="Next"><span
+                        class="icon icon--arrow"></span></button>
+            </div>
+        </div>
+
+        <div class="agents__list" id="agents">
+            <article class="agent reveal">
+                <div class="agent__photo agent__photo--1"></div>
+                <div class="agent__body">
+                    <h3 class="agent__name">Daniel Carter</h3>
+                    <p class="agent__role" data-i18n="agent.role">Real estate agent</p>
+                    <div class="rating"><span class="stars"></span><span class="rating__num">4.8</span></div>
+                    <a href="#" class="btn btn--dark btn--sm"><span class="icon icon--phone"></span><span
+                            data-i18n="agent.call">Call now</span></a>
+                </div>
+            </article>
+            <article class="agent reveal">
+                <div class="agent__photo agent__photo--2"></div>
+                <div class="agent__body">
+                    <h3 class="agent__name">James Mitchell</h3>
+                    <p class="agent__role" data-i18n="agent.role">Real estate agent</p>
+                    <div class="rating"><span class="stars"></span><span class="rating__num">4.8</span></div>
+                    <a href="#" class="btn btn--dark btn--sm"><span class="icon icon--phone"></span><span
+                            data-i18n="agent.call">Call now</span></a>
+                </div>
+            </article>
+            <article class="agent reveal">
+                <div class="agent__photo agent__photo--3"></div>
+                <div class="agent__body">
+                    <h3 class="agent__name">Olivia Barnes</h3>
+                    <p class="agent__role" data-i18n="agent.role">Real estate agent</p>
+                    <div class="rating"><span class="stars"></span><span class="rating__num">4.8</span></div>
+                    <a href="#" class="btn btn--dark btn--sm"><span class="icon icon--phone"></span><span
+                            data-i18n="agent.call">Call now</span></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta reveal">
+        <div class="cta__content">
+            <span class="cta__eyebrow" data-i18n="cta.eyebrow">READY TO GET STARTED</span>
+            <h2 class="cta__title" data-i18n-html="cta.title">Ready to Make Your Dream<br>Property a Reality?</h2>
+            <p class="cta__text" data-i18n="cta.text">Explore our curated selection of properties that align with your
+                vision.</p>
+            <a href="catalog.html" class="btn btn--light">
+                <span data-i18n="cta.btn">Get Started</span>
+                <span class="icon icon--arrow"></span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <div class="footer__logo">LUXESTATE</div>
+                <p data-i18n="footer.tagline">Your dream. Our priority.</p>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer.quick">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="index.html#why" data-i18n="footer.about">About Us</a></li>
+                    <li><a href="index.html#team" data-i18n="footer.team">Our Team</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer.company">Company</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footer.how">How it works</a></li>
+                    <li><a href="#" data-i18n="footer.terms">Terms &amp; agreement</a></li>
+                    <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
+                    <li><a href="#" data-i18n="footer.cookie">Cookie policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4 data-i18n="footer.support">Support</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
+                    <li><a href="#" data-i18n="footer.center">Support center</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+                    <li><a href="#" data-i18n="footer.chat">Chat with us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__subscribe">
+                <div class="socials">
+                    <a href="#" class="social social--instagram" aria-label="Instagram"></a>
+                    <a href="#" class="social social--linkedin" aria-label="LinkedIn"></a>
+                    <a href="#" class="social social--youtube" aria-label="YouTube"></a>
+                    <a href="#" class="social social--x" aria-label="X"></a>
+                </div>
+                <form class="subscribe" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" data-i18n-placeholder="footer.email">
+                    <button type="submit" class="subscribe__btn" aria-label="Subscribe"><span
+                            class="icon icon--arrow"></span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__legal">
+                <a href="#" data-i18n="footer.l.privacy">Privacy</a>
+                <a href="#" data-i18n="footer.l.terms">Terms</a>
+                <a href="#" data-i18n="footer.l.cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="common.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
