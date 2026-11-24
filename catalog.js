@@ -33,3 +33,8 @@ window.addEventListener('scroll', () => {
     }
 }, {passive:true});
 onScroll();
+
+document.getElementById('burger').addEventListener('click', () => nav.classList.toggle('nav--open'));
+document.querySelectorAll('nav__link').forEach((link) => {
+    link.addEventListener('click', () => nav.classList.remove('nav--open'));
+});
