@@ -1,17 +1,8 @@
-const PROPERTIES = [
-    { id: 1, type: 'house', loc: 'suburbs', price: 340000, beds: 4, baths: 3, area: 240 },
-    { id: 2, type: 'villa', loc: 'seaside', price: 890000, beds: 5, baths: 4, area: 410 },
-    { id: 3, type: 'apartment', loc: 'downtown', price: 275000, beds: 2, baths: 1, area: 95 },
-    { id: 4, type: 'house', loc: 'suburbs', price: 420000, beds: 4, baths: 3, area: 260 },
-    { id: 5, type: 'villa', loc: 'seaside', price: 1250000, beds: 6, baths: 5, area: 520 },
-    { id: 6, type: 'apartment', loc: 'downtown', price: 365000, beds: 3, baths: 2, area: 130 },
-    { id: 7, type: 'house', loc: 'downtown', price: 510000, beds: 3, baths: 2, area: 190 },
-    { id: 8, type: 'apartment', loc: 'seaside', price: 450000, beds: 2, baths: 2, area: 110 },
-    { id: 9, type: 'villa', loc: 'suburbs', price: 760000, beds: 5, baths: 4, area: 380 },
-    { id: 10, type: 'house', loc: 'seaside', price: 640000, beds: 4, baths: 3, area: 300 },
-    { id: 11, type: 'apartment', loc: 'suburbs', price: 198000, beds: 1, baths: 1, area: 64 },
-    { id: 12, type: 'villa', loc: 'downtown', price: 980000, beds: 5, baths: 5, area: 450 }
-];
+// Каталог: данные, фильтры, сортировка, избранное.
+// Карточки собираются из семантической разметки с готовыми CSS-классами —
+// весь внешний вид (включая фото .img-N) описан в style.css.
+
+// PROPERTIES приходят из data.js
 
 const PRICE_MAX = 1500000;
 const { t, fmtPrice } = window.I18N;
@@ -33,12 +24,14 @@ const els = {
 
 const state = { q: '', types: new Set(), loc: '', maxPrice: PRICE_MAX, beds: 0, sort: 'featured' };
 
+// избранное
 let favs = new Set();
 try { favs = new Set(JSON.parse(localStorage.getItem('lx-favs') || '[]')); } catch (e) { /* ignore */ }
 function saveFavs() {
     try { localStorage.setItem('lx-favs', JSON.stringify([...favs])); } catch (e) { /* ignore */ }
 }
 
+// ---------- фильтрация ----------
 function getFiltered() {
     const q = state.q.trim().toLowerCase();
     let list = PROPERTIES.filter((p) => {
@@ -59,6 +52,7 @@ function getFiltered() {
     return list;
 }
 
+// ---------- отрисовка ----------
 function cardHTML(p) {
     const on = favs.has(p.id) ? ' is-on' : '';
     return `
@@ -71,7 +65,7 @@ function cardHTML(p) {
         </button>
       </div>
       <div class="pcard__body">
-        <h3 class="pcard__name">${t('n' + p.id)}</h3>
+        <h3 class="pcard__name"><a class="pcard__link" href="property.html?id=${p.id}">${t('n' + p.id)}</a></h3>
         <p class="pcard__loc"><span class="icon icon--pin"></span>${t('loc.' + p.loc)}</p>
         <div class="pcard__price">${fmtPrice(p.price)}</div>
         <div class="pcard__meta">
@@ -106,6 +100,7 @@ function render() {
     renderPriceLabel();
 }
 
+// ---------- события ----------
 els.q.addEventListener('input', () => { state.q = els.q.value; render(); });
 
 els.types.addEventListener('click', (e) => {
@@ -142,6 +137,7 @@ els.reset.addEventListener('click', () => {
     render();
 });
 
+// избранное (делегирование, без перерисовки списка)
 els.listing.addEventListener('click', (e) => {
     const btn = e.target.closest('.fav');
     if (!btn) return;
@@ -150,11 +146,16 @@ els.listing.addEventListener('click', (e) => {
     btn.classList.toggle('is-on', favs.has(id));
     saveFavs();
 });
+
+// панель фильтров на мобильных
 els.filtersToggle.addEventListener('click', () => {
     els.filters.classList.toggle('filters--open');
 });
+
+// смена языка → перерисовать карточки и подписи
 document.addEventListener('languagechange', render);
 
+// ---------- параметры из адресной строки (с главной страницы) ----------
 (function readParams() {
     const params = new URLSearchParams(window.location.search);
 

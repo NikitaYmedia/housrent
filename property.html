@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title.property">Property Details — LUXESTATE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">LUXESTATE</a>
+    <ul class="nav__menu">
+      <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="index.html#why" class="nav__link" data-i18n="nav.about">About us</a></li>
+      <li><a href="catalog.html" class="nav__link nav__link--active" data-i18n="nav.list">Property List</a></li>
+      <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact us</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="lang" id="lang">
+        <button class="lang__btn" type="button" aria-haspopup="true">
+          <span class="icon icon--globe"></span>
+          <span data-i18n="lang.short">Eng</span>
+          <span class="icon icon--chevron"></span>
+        </button>
+        <ul class="lang__menu">
+          <li><button type="button" data-lang="en">English</button></li>
+          <li><button type="button" data-lang="de">Deutsch</button></li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Log in</a>
+      <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
+    </div>
+  </nav>
+
+  <main class="detail">
+
+    <!-- TOP: gallery + info -->
+    <div class="detail__top">
+
+      <div class="gallery" id="gallery">
+        <div class="gallery__img" id="gImg"></div>
+
+        <a href="catalog.html" class="pill-btn gallery__back">
+          <span class="icon icon--arrow icon--flip"></span>
+          <span data-i18n="prop.back">Back to list</span>
+        </a>
+
+        <div class="gallery__actions">
+          <button type="button" class="round-btn" id="gFav" aria-label="Favorite"><span class="icon icon--heart"></span></button>
+          <button type="button" class="round-btn" id="gShare" aria-label="Share"><span class="icon icon--share"></span></button>
+        </div>
+
+        <div class="gallery__count">
+          <span class="icon icon--camera"></span>
+          <span id="gCount">1 / 12</span>
+        </div>
+
+        <div class="gallery__nav">
+          <button type="button" class="round-btn round-btn--sm" id="gPrev" aria-label="Previous photo"><span class="icon icon--arrow icon--flip"></span></button>
+          <button type="button" class="round-btn round-btn--sm round-btn--dark" id="gNext" aria-label="Next photo"><span class="icon icon--arrow"></span></button>
+        </div>
+
+        <div class="gallery__dots" id="gDots"></div>
+      </div>
+
+      <aside class="info">
+        <span class="status"><i></i><span data-i18n="prop.sale">For Sale</span></span>
+        <h1 class="info__title"><span id="pName">Luxury Modern Living</span> <span class="info__tag" id="pTag"></span></h1>
+        <div class="info__price" id="pPrice"></div>
+
+        <ul class="info__stats">
+          <li><span class="icon icon--bed"></span><span id="pBeds"></span></li>
+          <li><span class="icon icon--bath"></span><span id="pBaths"></span></li>
+          <li><span class="icon icon--area"></span><span id="pArea"></span></li>
+        </ul>
+
+        <p class="info__address"><span class="icon icon--pin"></span><span id="pAddr"></span></p>
+        <p class="info__desc" id="pDesc"></p>
+
+        <div class="info__actions">
+          <button type="button" class="btn btn--dark" id="bSchedule">
+            <span data-i18n="prop.schedule">Schedule a Viewing</span>
+            <span class="icon icon--arrow"></span>
+          </button>
+          <button type="button" class="btn btn--outline" id="bFav">
+            <span id="bFavText" data-i18n="prop.fav.add">Add to Favorites</span>
+            <span class="icon icon--heart"></span>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- BOTTOM: tabs + agent -->
+    <div class="detail__bottom">
+
+      <section class="tabs-card">
+        <div class="tabs" id="tabs" role="tablist">
+          <button type="button" class="tab is-active" data-tab="overview" data-i18n="tab.overview">Overview</button>
+          <button type="button" class="tab" data-tab="features" data-i18n="tab.features">Features</button>
+          <button type="button" class="tab" data-tab="location" data-i18n="tab.location">Location</button>
+          <button type="button" class="tab" data-tab="plan" data-i18n="tab.plan">Floor Plan</button>
+          <button type="button" class="tab" data-tab="reviews" data-i18n="tab.reviews">Reviews</button>
+        </div>
+
+        <!-- Overview -->
+        <div class="tabpanel is-active" data-panel="overview">
+          <div class="overview">
+            <div>
+              <h2 class="panel-title" data-i18n="ov.title">Property Overview</h2>
+              <p class="panel-text" data-i18n="ov.text">This exceptional home offers unparalleled luxury and comfort. With its modern architecture, spacious interiors, and premium amenities, it's the perfect place for your dream lifestyle.</p>
+              <ul class="checks">
+                <li data-i18n="ov.c1">Modern open floor plan</li>
+                <li data-i18n="ov.c2">Premium finishes</li>
+                <li data-i18n="ov.c3">Private pool and garden</li>
+                <li data-i18n="ov.c4">Smart home features</li>
+              </ul>
+            </div>
+            <div class="thumbs" id="thumbs">
+              <button type="button" class="thumb pic-1" data-slide="1" aria-label="Photo 2"></button>
+              <button type="button" class="thumb pic-2" data-slide="2" aria-label="Photo 3"></button>
+              <button type="button" class="thumb pic-3" data-slide="3" aria-label="Photo 4"></button>
+              <button type="button" class="thumb pic-4" data-slide="4" aria-label="Photo 5"></button>
+              <button type="button" class="thumb pic-5" data-slide="5" aria-label="Photo 6"></button>
+              <button type="button" class="thumb pic-6" data-slide="6" aria-label="Photo 7"></button>
+            </div>
+          </div>
+          <ul class="facts" id="facts"></ul>
+        </div>
+
+        <!-- Features -->
+        <div class="tabpanel" data-panel="features">
+          <h2 class="panel-title" data-i18n="ft.title">Features &amp; Amenities</h2>
+          <ul class="feat-grid">
+            <li data-i18n="ft.pool">Swimming pool</li>
+            <li data-i18n="ft.garden">Landscaped garden</li>
+            <li data-i18n="ft.garage">2-car garage</li>
+            <li data-i18n="ft.smart">Smart home system</li>
+            <li data-i18n="ft.security">24/7 security</li>
+            <li data-i18n="ft.ac">Air conditioning</li>
+            <li data-i18n="ft.fire">Fireplace</li>
+            <li data-i18n="ft.gym">Home gym</li>
+            <li data-i18n="ft.solar">Solar panels</li>
+            <li data-i18n="ft.terrace">Panoramic terrace</li>
+          </ul>
+        </div>
+
+        <!-- Location -->
+        <div class="tabpanel" data-panel="location">
+          <h2 class="panel-title" data-i18n="loc.title">Neighbourhood</h2>
+          <div class="loc">
+            <div class="map"><span class="map__park"></span><span class="map__pin"></span></div>
+            <ul class="nearby">
+              <li><span data-i18n="near.school">Primary school</span><b data-i18n="near.min" data-n="5">5 min walk</b></li>
+              <li><span data-i18n="near.shop">Supermarket</span><b data-i18n="near.min" data-n="3">3 min walk</b></li>
+              <li><span data-i18n="near.metro">Metro station</span><b data-i18n="near.min" data-n="8">8 min walk</b></li>
+              <li><span data-i18n="near.park">City park</span><b data-i18n="near.min" data-n="4">4 min walk</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Floor plan -->
+        <div class="tabpanel" data-panel="plan">
+          <h2 class="panel-title" data-i18n="plan.title">Floor Plan</h2>
+          <div class="plan">
+            <div class="room room--living" data-i18n="room.living">Living room</div>
+            <div class="room room--dining" data-i18n="room.dining">Dining</div>
+            <div class="room room--kitchen" data-i18n="room.kitchen">Kitchen</div>
+            <div class="room room--terrace" data-i18n="room.terrace">Terrace</div>
+            <div class="room room--master" data-i18n="room.master">Master bedroom</div>
+            <div class="room room--bed" data-i18n="room.bed">Bedroom</div>
+            <div class="room room--bath" data-i18n="room.bath">Bath</div>
+          </div>
+          <p class="plan__note" data-i18n="plan.note">Schematic illustration, not to scale.</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="tabpanel" data-panel="reviews">
+          <div class="reviews">
+            <div class="reviews__summary">
+              <h2 class="panel-title" data-i18n="rev.title">Reviews</h2>
+              <div class="reviews__score">4.8</div>
+              <div class="rating"><span class="stars"></span></div>
+              <p class="reviews__based" data-i18n="rev.based">Based on 24 reviews</p>
+              <div class="bars">
+                <div class="bar"><span>5</span><div class="bar__track"><div class="bar__fill bar__fill--80"></div></div></div>
+                <div class="bar"><span>4</span><div class="bar__track"><div class="bar__fill bar__fill--15"></div></div></div>
+                <div class="bar"><span>3</span><div class="bar__track"><div class="bar__fill bar__fill--5"></div></div></div>
+                <div class="bar"><span>2</span><div class="bar__track"><div class="bar__fill bar__fill--0"></div></div></div>
+                <div class="bar"><span>1</span><div class="bar__track"><div class="bar__fill bar__fill--0"></div></div></div>
+              </div>
+            </div>
+            <div class="reviews__list">
+              <article class="review">
+                <span class="avatar avatar--1" data-initial="S"></span>
+                <div><h3>Sophie Lang</h3><p data-i18n="rev.t1">Beautiful home, exactly as described. The viewing was smooth and the agent was very helpful.</p></div>
+              </article>
+              <article class="review">
+                <span class="avatar avatar--2" data-initial="M"></span>
+                <div><h3>Marcus Hale</h3><p data-i18n="rev.t2">The pool and the garden are even better in person. A calm neighbourhood with everything nearby.</p></div>
+              </article>
+              <article class="review">
+                <span class="avatar avatar--3" data-initial="E"></span>
+                <div><h3>Elena Rossi</h3><p data-i18n="rev.t3">Clear paperwork and a fast handover. We moved in within a month, without any surprises.</p></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="agent-card">
+        <h2 class="agent-card__title" data-i18n="agent.contact">Contact Agent</h2>
+        <div class="agent-card__row">
+          <div class="agent__photo agent__photo--1" id="aPhoto"></div>
+          <div class="agent-card__info">
+            <h3 class="agent__name" id="aName">Daniel Carter</h3>
+            <p class="agent__role" data-i18n="agent.role">Real estate agent</p>
+            <div class="rating"><span class="stars"></span><span class="rating__num">4.8</span></div>
+          </div>
+        </div>
+        <div class="agent-card__buttons">
+          <a href="tel:+12125550100" class="btn btn--dark btn--sm"><span class="icon icon--phone"></span><span data-i18n="agent.call">Call now</span></a>
+          <button type="button" class="btn btn--outline btn--sm" id="bMessage"><span class="icon icon--chat"></span><span data-i18n="agent.message">Message</span></button>
+        </div>
+
+        <div class="similar">
+          <a href="catalog.html" class="similar__head">
+            <h3 data-i18n="sim.title">Similar Properties</h3>
+            <span class="circle-btn circle-btn--sm"><span class="icon icon--arrow"></span></span>
+          </a>
+          <div class="similar__list" id="similar"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal modal--viewing" id="modal" aria-hidden="true">
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <button type="button" class="modal__close" id="mClose" aria-label="Close"><span class="icon icon--close"></span></button>
+
+      <div class="modal__head">
+        <h2 class="modal__title" id="mTitle">Schedule a viewing</h2>
+        <p class="modal__sub" id="mSub"></p>
+      </div>
+
+      <form class="form" id="mForm">
+        <label><span data-i18n="form.name">Full name</span><input type="text" required autocomplete="name"></label>
+        <label><span data-i18n="form.email">Email</span><input type="email" required autocomplete="email"></label>
+        <div class="form__row" data-mode="viewing">
+          <label><span data-i18n="form.date">Date</span><input type="date" id="mDate"></label>
+          <label><span data-i18n="form.time">Time</span>
+            <select>
+              <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+              <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+            </select>
+          </label>
+        </div>
+        <label data-mode="message"><span data-i18n="form.msg">Message</span><textarea></textarea></label>
+        <button type="submit" class="btn btn--dark btn--lg" id="mSubmit">Request viewing</button>
+      </form>
+
+      <div class="modal__done">
+        <span class="modal__done-icon"><span class="icon icon--check"></span></span>
+        <h2 class="modal__title" data-i18n="form.done.title">Thank you!</h2>
+        <p class="modal__sub" data-i18n="form.done.text">We received your request and will contact you shortly.</p>
+        <button type="button" class="btn btn--outline btn--sm" id="mDone" data-i18n="form.close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">LUXESTATE</div>
+        <p data-i18n="footer.tagline">Your dream. Our priority.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.quick">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="index.html#why" data-i18n="footer.about">About Us</a></li>
+          <li><a href="index.html#team" data-i18n="footer.team">Our Team</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.how">How it works</a></li>
+          <li><a href="#" data-i18n="footer.terms">Terms &amp; agreement</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="#" data-i18n="footer.cookie">Cookie policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
+          <li><a href="#" data-i18n="footer.center">Support center</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+          <li><a href="#" data-i18n="footer.chat">Chat with us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__subscribe">
+        <div class="socials">
+          <a href="#" class="social social--instagram" aria-label="Instagram"></a>
+          <a href="#" class="social social--linkedin" aria-label="LinkedIn"></a>
+          <a href="#" class="social social--youtube" aria-label="YouTube"></a>
+          <a href="#" class="social social--x" aria-label="X"></a>
+        </div>
+        <form class="subscribe" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" data-i18n-placeholder="footer.email">
+          <button type="submit" class="subscribe__btn" aria-label="Subscribe"><span class="icon icon--arrow"></span></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p data-i18n="footer.rights">© 2025 Luxestate. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#" data-i18n="footer.l.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.l.terms">Terms</a>
+        <a href="#" data-i18n="footer.l.cookies">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="auth.js"></script>
+  <script src="property.js"></script>
+</body>
+</html>

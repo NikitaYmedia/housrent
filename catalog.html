@@ -1,207 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title.catalog">Property Catalog — LUXESTATE</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title.catalog">Property Catalog — LUXESTATE</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="progress"></div>
+  <div class="progress"></div>
 
-    <nav class="nav" id="nav">
-        <a href="index.html" class="nav__logo">LUXESTATE</a>
-        <ul class="nav__menu">
-            <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
-            <li><a href="index.html#why" class="nav__link" data-i18n="nav.about">About us</a></li>
-            <li><a href="catalog.html" class="nav__link nav__link--active" data-i18n="nav.list">Property List</a></li>
-            <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact us</a></li>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">LUXESTATE</a>
+    <ul class="nav__menu">
+      <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+      <li><a href="index.html#why" class="nav__link" data-i18n="nav.about">About us</a></li>
+      <li><a href="catalog.html" class="nav__link nav__link--active" data-i18n="nav.list">Property List</a></li>
+      <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact us</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="lang" id="lang">
+        <button class="lang__btn" type="button" aria-haspopup="true">
+          <span class="icon icon--globe"></span>
+          <span data-i18n="lang.short">Eng</span>
+          <span class="icon icon--chevron"></span>
+        </button>
+        <ul class="lang__menu">
+          <li><button type="button" data-lang="en">English</button></li>
+          <li><button type="button" data-lang="de">Deutsch</button></li>
         </ul>
-        <div class="nav__right">
-            <div class="lang" id="lang">
-                <button class="lang__btn" type="button" aria-haspopup="true">
-                    <span class="icon icon--globe"></span>
-                    <span data-i18n="lang.short">Eng</span>
-                    <span class="icon icon--chevron"></span>
-                </button>
-                <ul class="lang__menu">
-                    <li><button type="button" data-lang="en">English</button></li>
-                    <li><button type="button" data-lang="de">Deutsch</button></li>
-                </ul>
-            </div>
-            <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Sign up</a>
-            <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
+      </div>
+      <a href="#" class="btn btn--dark btn--sm" data-i18n="nav.signup">Log in</a>
+      <button class="nav__burger" id="burger" type="button" aria-label="Menu"><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEAD -->
+  <header class="page-head">
+    <div class="page-head__mark" data-i18n="cat.mark">Catalog</div>
+    <div class="page-head__inner">
+      <div class="crumbs">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <span class="crumbs__sep"></span>
+        <span data-i18n="cat.crumb">Catalog</span>
+      </div>
+      <span class="eyebrow" data-i18n="cat.eyebrow">Catalog</span>
+      <h1 class="page-head__title" data-i18n-html="cat.title">Find a home<br>that fits you</h1>
+      <p class="page-head__text" data-i18n="cat.text">Browse our listings and narrow them down with filters.</p>
+    </div>
+  </header>
+
+  <!-- CATALOG -->
+  <main class="section catalog">
+
+    <aside class="filters" id="filters">
+      <div class="filters__head">
+        <h2 data-i18n="filt.title">Filters</h2>
+      </div>
+
+      <div class="filters__group">
+        <label class="filters__label" for="q" data-i18n="filt.search">Search</label>
+        <span class="input">
+          <span class="icon icon--search"></span>
+          <input id="q" type="text" autocomplete="off" placeholder="Name or location" data-i18n-placeholder="filt.search.ph">
+        </span>
+      </div>
+
+      <div class="filters__group">
+        <span class="filters__label" data-i18n="filt.type">Property type</span>
+        <div class="pills" id="types">
+          <button type="button" class="pill" data-type="house" data-i18n="type.house">House</button>
+          <button type="button" class="pill" data-type="apartment" data-i18n="type.apartment">Apartment</button>
+          <button type="button" class="pill" data-type="villa" data-i18n="type.villa">Villa</button>
         </div>
-    </nav>
+      </div>
 
-    <header class="page-head">
-        <div class="page-head__mark" data-i18n="cat.mark">Catalog</div>
-        <div class="page-head__inner">
-            <div class="crumbs">
-                <a href="index.html" data-i18n="nav.home">Home</a>
-                <span class="crumbs__sep"></span>
-                <span data-i18n="cat.crumb">Catalog</span>
-            </div>
-            <h1 class="page-head__title" data-i18n-html="cat.title">Find a home<br>that fits you</h1>
-            <p class="page-head__text" data-i18n="cat.text">Browse our listings and narrow them down with filters.</p>
+      <div class="filters__group">
+        <label class="filters__label" for="loc" data-i18n="filt.loc">Location</label>
+        <span class="field__box field__box--full">
+          <select id="loc">
+            <option value="" data-i18n="loc.any">All locations</option>
+            <option value="downtown" data-i18n="loc.downtown">Downtown</option>
+            <option value="suburbs" data-i18n="loc.suburbs">Suburbs</option>
+            <option value="seaside" data-i18n="loc.seaside">Seaside</option>
+          </select>
+          <span class="icon icon--chevron"></span>
+        </span>
+      </div>
+
+      <div class="filters__group">
+        <label class="filters__label" for="price" data-i18n="filt.price">Max price</label>
+        <input id="price" class="range" type="range" min="100000" max="1500000" step="50000" value="1500000">
+        <div class="range__value" id="priceLabel">Any price</div>
+      </div>
+
+      <div class="filters__group">
+        <span class="filters__label" data-i18n="filt.beds">Bedrooms</span>
+        <div class="pills" id="beds">
+          <button type="button" class="pill is-active" data-beds="0" data-i18n="beds.any">Any</button>
+          <button type="button" class="pill" data-beds="1">1+</button>
+          <button type="button" class="pill" data-beds="2">2+</button>
+          <button type="button" class="pill" data-beds="3">3+</button>
+          <button type="button" class="pill" data-beds="4">4+</button>
         </div>
-    </header>
+      </div>
 
-    <main class="section catalog">
+      <button type="button" class="btn btn--outline btn--sm filters__reset" id="reset" data-i18n="filt.reset">Reset filters</button>
+    </aside>
 
-        <aside class="filters" id="filters">
-            <div class="filters__head">
-                <h2 data-i18n="filt.title">Filters</h2>
-            </div>
-
-            <div class="filters__group">
-                <label class="filters__label" for="q" data-i18n="filt.search">Search</label>
-                <span class="input">
-                    <span class="icon icon--search"></span>
-                    <input id="q" type="text" autocomplete="off" placeholder="Name or location"
-                        data-i18n-placeholder="filt.search.ph">
-                </span>
-            </div>
-
-            <div class="filters__group">
-                <span class="filters__label" data-i18n="filt.type">Property type</span>
-                <div class="pills" id="types">
-                    <button type="button" class="pill" data-type="house" data-i18n="type.house">House</button>
-                    <button type="button" class="pill" data-type="apartment"
-                        data-i18n="type.apartment">Apartment</button>
-                    <button type="button" class="pill" data-type="villa" data-i18n="type.villa">Villa</button>
-                </div>
-            </div>
-
-            <div class="filters__group">
-                <label class="filters__label" for="loc" data-i18n="filt.loc">Location</label>
-                <span class="field__box field__box--full">
-                    <select id="loc">
-                        <option value="" data-i18n="loc.any">All locations</option>
-                        <option value="downtown" data-i18n="loc.downtown">Downtown</option>
-                        <option value="suburbs" data-i18n="loc.suburbs">Suburbs</option>
-                        <option value="seaside" data-i18n="loc.seaside">Seaside</option>
-                    </select>
-                    <span class="icon icon--chevron"></span>
-                </span>
-            </div>
-
-            <div class="filters__group">
-                <label class="filters__label" for="price" data-i18n="filt.price">Max price</label>
-                <input id="price" class="range" type="range" min="100000" max="1500000" step="50000" value="1500000">
-                <div class="range__value" id="priceLabel">Any price</div>
-            </div>
-
-            <div class="filters__group">
-                <span class="filters__label" data-i18n="filt.beds">Bedrooms</span>
-                <div class="pills" id="beds">
-                    <button type="button" class="pill is-active" data-beds="0" data-i18n="beds.any">Any</button>
-                    <button type="button" class="pill" data-beds="1">1+</button>
-                    <button type="button" class="pill" data-beds="2">2+</button>
-                    <button type="button" class="pill" data-beds="3">3+</button>
-                    <button type="button" class="pill" data-beds="4">4+</button>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn--outline btn--sm filters__reset" id="reset"
-                data-i18n="filt.reset">Reset filters</button>
-        </aside>
-
-        <section class="results">
-            <div class="results__bar">
-                <div class="results__left">
-                    <button type="button" class="btn btn--dark btn--sm filters-toggle" id="filtersToggle">
-                        <span data-i18n="filt.toggle">Filters</span>
-                    </button>
-                    <p class="results__count" id="count"></p>
-                </div>
-                <label class="sort">
-                    <span data-i18n="sort.label">Sort by</span>
-                    <span class="field__box">
-                        <select id="sort">
-                            <option value="featured" data-i18n="sort.featured">Featured</option>
-                            <option value="priceAsc" data-i18n="sort.priceAsc">Price: low to high</option>
-                            <option value="priceDesc" data-i18n="sort.priceDesc">Price: high to low</option>
-                            <option value="area" data-i18n="sort.area">Largest area</option>
-                        </select>
-                        <span class="icon icon--chevron"></span>
-                    </span>
-                </label>
-            </div>
-
-            <div class="listing" id="listing"></div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer" id="contact">
-        <div class="footer__top">
-            <div class="footer__brand">
-                <div class="footer__logo">LUXESTATE</div>
-                <p data-i18n="footer.tagline">Your dream. Our priority.</p>
-            </div>
-
-            <div class="footer__col">
-                <h4 data-i18n="footer.quick">Quick Links</h4>
-                <ul>
-                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                    <li><a href="index.html#why" data-i18n="footer.about">About Us</a></li>
-                    <li><a href="index.html#team" data-i18n="footer.team">Our Team</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__col">
-                <h4 data-i18n="footer.company">Company</h4>
-                <ul>
-                    <li><a href="#" data-i18n="footer.how">How it works</a></li>
-                    <li><a href="#" data-i18n="footer.terms">Terms &amp; agreement</a></li>
-                    <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
-                    <li><a href="#" data-i18n="footer.cookie">Cookie policy</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__col">
-                <h4 data-i18n="footer.support">Support</h4>
-                <ul>
-                    <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
-                    <li><a href="#" data-i18n="footer.center">Support center</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
-                    <li><a href="#" data-i18n="footer.chat">Chat with us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__subscribe">
-                <div class="socials">
-                    <a href="#" class="social social--instagram" aria-label="Instagram"></a>
-                    <a href="#" class="social social--linkedin" aria-label="LinkedIn"></a>
-                    <a href="#" class="social social--youtube" aria-label="YouTube"></a>
-                    <a href="#" class="social social--x" aria-label="X"></a>
-                </div>
-                <form class="subscribe" onsubmit="return false;">
-                    <input type="email" placeholder="Enter your email" data-i18n-placeholder="footer.email">
-                    <button type="submit" class="subscribe__btn" aria-label="Subscribe"><span
-                            class="icon icon--arrow"></span></button>
-                </form>
-            </div>
+    <section class="results">
+      <div class="results__bar">
+        <div class="results__left">
+          <button type="button" class="btn btn--dark btn--sm filters-toggle" id="filtersToggle">
+            <span data-i18n="filt.toggle">Filters</span>
+          </button>
+          <p class="results__count" id="count"></p>
         </div>
+        <label class="sort">
+          <span data-i18n="sort.label">Sort by</span>
+          <span class="field__box">
+            <select id="sort">
+              <option value="featured" data-i18n="sort.featured">Featured</option>
+              <option value="priceAsc" data-i18n="sort.priceAsc">Price: low to high</option>
+              <option value="priceDesc" data-i18n="sort.priceDesc">Price: high to low</option>
+              <option value="area" data-i18n="sort.area">Largest area</option>
+            </select>
+            <span class="icon icon--chevron"></span>
+          </span>
+        </label>
+      </div>
 
-        <div class="footer__bottom">
-            <div class="footer__legal">
-                <a href="#" data-i18n="footer.l.privacy">Privacy</a>
-                <a href="#" data-i18n="footer.l.terms">Terms</a>
-                <a href="#" data-i18n="footer.l.cookies">Cookies</a>
-            </div>
+      <div class="listing" id="listing"></div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">LUXESTATE</div>
+        <p data-i18n="footer.tagline">Your dream. Our priority.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.quick">Quick Links</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="index.html#why" data-i18n="footer.about">About Us</a></li>
+          <li><a href="index.html#team" data-i18n="footer.team">Our Team</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.how">How it works</a></li>
+          <li><a href="#" data-i18n="footer.terms">Terms &amp; agreement</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="#" data-i18n="footer.cookie">Cookie policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.support">Support</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
+          <li><a href="#" data-i18n="footer.center">Support center</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact us</a></li>
+          <li><a href="#" data-i18n="footer.chat">Chat with us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__subscribe">
+        <div class="socials">
+          <a href="#" class="social social--instagram" aria-label="Instagram"></a>
+          <a href="#" class="social social--linkedin" aria-label="LinkedIn"></a>
+          <a href="#" class="social social--youtube" aria-label="YouTube"></a>
+          <a href="#" class="social social--x" aria-label="X"></a>
         </div>
-    </footer>
+        <form class="subscribe" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" data-i18n-placeholder="footer.email">
+          <button type="submit" class="subscribe__btn" aria-label="Subscribe"><span class="icon icon--arrow"></span></button>
+        </form>
+      </div>
+    </div>
 
-    <script src="i18n.js"></script>
-    <script src="common.js"></script>
-    <script src="catalog.js"></script>
+    <div class="footer__bottom">
+      <p data-i18n="footer.rights">© 2025 Luxestate. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#" data-i18n="footer.l.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.l.terms">Terms</a>
+        <a href="#" data-i18n="footer.l.cookies">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="auth.js"></script>
+  <script src="catalog.js"></script>
 </body>
-
 </html>
